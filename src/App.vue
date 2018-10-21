@@ -6,6 +6,8 @@
     </Story>
     <Disaster>
     </Disaster>
+    <Gather>
+    </Gather>
   </div>
 </template>
 
@@ -13,7 +15,8 @@
 
 import StartScreen from './components/StartScreen'
 import Story from './components/Story'
-import Disaster from './component/Disaster'
+import Disaster from './components/Disaster'
+import Gather from './components/Gather'
 
 export default {
   name: 'App',
@@ -21,6 +24,7 @@ export default {
     StartScreen,
     Story,
     Disaster,
+    Gather
   }
 }
 </script>

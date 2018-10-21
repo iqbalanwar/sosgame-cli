@@ -7,15 +7,15 @@
     <body>
         <img src=""/>
         <p>A %disasterLevel% is predicted for the next week</p>
-
+<!-- SCRIPTS ARE NOT ALLOWED!
         <script>
-            <p>The danger is %disasterDist%</p>
+            <p>The danger is disasterDist</p>
         </script>
-
+-->
         <button v-on:click="stay">
             Stay?
         </button>
-        <button v-on:click="leave">>
+        <button v-on:click="leave">
             Leave?
         </button>
     </body>
@@ -27,37 +27,36 @@
 var axios = require('axios')
 
 export default {
-  name: 'Story',
+  name: 'Disaster',
   data () {
     return {
       disasterPic:{},
       disasterLevel:{},
       disasterDist:{},
-      disasterChoice: {
+      game_id: {
           stay: 0,
           leave: 1
       }
     }
   },
+
   methods: {
     disasterGame: function() {
         var self = this
         axios.get("http://s-o-s.fun/api/game/start")
-            .then(function(response) {
-            //var len = characters.length;
-            //for (i = 0; i < len; i++) {
+            .then( function(response) {
                 self.disasterPic = response.data.disaster.emoji.url;
                 self.disasterLevel = response.data.disaster.generated_level;
                 self.disasterDist = response.data.disaster.distance;
-            //}
-            }
+            })
     },
 
     distChoice: function(event) {
-        console.log(this.disasterChoice)
+        var self = this
+        console.log(this.game_id)
         //return this.disasterChoice
         axios.post('/game/disasterChoice', {
-            stayOrGo: this.disasterChoice
+            game_id: this.game_id
         })
         .then(function(response) {
             console.log(response);

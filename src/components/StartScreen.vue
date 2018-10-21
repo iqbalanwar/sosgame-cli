@@ -1,19 +1,15 @@
 <template>
     <div class="container">
-
       Disaster can strike at any time. Are you ready?
-      <img src="../assets/SOS-title-graphic.png"/>
+      <img src="../assets/SOS-title-graphic.png" width="400" height="180"/>
 
       <button>
-        <img src="../assets/ifeelunlucky_btn.png"/> <!--route to  Story-->
+        <img src="../assets/ifeelunlucky_btn.png" width="400" height="180"/> <!--route to  Story-->
       </button>
       <button> <!--route to info screen-->
         ?
       </button>
 
-      <form action="/new_url" method="GET">
-        
-      </form>
     </div>
 </template>
 

@@ -1,6 +1,9 @@
 <template>
   <div class = "container">
-    <img src=""/> <!--For the characters-->
+    This is who you are!
+    <div v-for="face in faces">       
+     <img :src="'https://raw.githubusercontent.com/EmojiTwo/emojitwo/master/png/'+face.emoji.code+'.png'" width="90" height="90"/>
+    </div>
     <button> Next </button>
   </div>
 </template>
@@ -16,6 +19,7 @@ export default {
       faces:{}
     }
   },
+  
   methods: {
     randomPlayer: function() {
       var self = this
@@ -23,7 +27,7 @@ export default {
         .then(function(response) {
           //var len = characters.length;
           //for (i = 0; i < len; i++) {
-            self.faces = response.data.characters[0].emoji.url;
+            self.faces = response.data.characters;
         //}
       })
     }
